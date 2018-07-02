@@ -5,39 +5,47 @@
   <title>Exercice 2</title>
 </head>
 <body>
-  <input id="note1" placeholder="note1" />
-  <input id="note2" placeholder="note2" />
-  <input id="note3" placeholder="note3" />
-  <input id="note4" placeholder="note4" />
-  <input id="note5" placeholder="note5" />
-  <button id="validate" onclick="validate">Validez</button>
+  <form>
+    <input id="note1" placeholder="note1" />
+    <input id="note2" placeholder="note2" />
+    <input id="note3" placeholder="note3" />
+    <input id="note4" placeholder="note4" />
+    <input id="note5" placeholder="note5" />
+    <button id="validate" onclick="validate">Validez</button>
+  </form>
   <script src="assets/js/jquery-3.3.1.min.js"></script>
   <script>
   $('#validate').click(function() {
-  var note1 = parseInt(document.getElementById('note1').value);
-  var note2 = parseInt(document.getElementById('note2').value);
-  var note3 = parseInt(document.getElementById('note3').value);
-  var note4 = parseInt(document.getElementById('note4').value);
-  var note5 = parseInt(document.getElementById('note5').value);
-  var moyenne = ((note1 + note2 + note3 + note4 + note5) / 5);
-  var regex = /^([01]?\d|20)$/;
-  if (regex.test() == true) {
-    if (moyenne >=0 && moyenne < 10) {
-    alert('Moyenne : ' + moyenne + '\nEn dessous de la moyenne.');
-  } else if ((moyenne >=10) && (moyenne <13)) {
-    alert('Moyenne : ' +moyenne + '\nMoyen.');
-  } else if ((moyenne >=13) && (moyenne <16)) {
-    alert('Moyenne : ' + moyenne + '\nBien.');
-  } else if ((moyenne >=16) && (moyenne <20)) {
-    alert('Moyenne : ' + moyenne + '\nTrès bien.');
-  } else if (moyenne == 20) {
-    alert('Moyenne : ' + moyenne + '\nExcellent.');
-  }
-} else {
-  alert('Veuillez recommencer la saisie.');
-}
-  console.log( moyenne = (note1 + note2 + note3 + note4 + note5) / 5);
-});
+    //récupération de la valeur des notes
+    var note1 = parseInt(document.getElementById('note1').value);
+    var note2 = parseInt(document.getElementById('note2').value);
+    var note3 = parseInt(document.getElementById('note3').value);
+    var note4 = parseInt(document.getElementById('note4').value);
+    var note5 = parseInt(document.getElementById('note5').value);
+    //calcul de la moyenne
+    var moyenne = ((note1 + note2 + note3 + note4 + note5) / 5);
+    //définition des valeurs acceptées
+    var regex = /^([01]?\d|20)$/;
+    //vérification des valeurs entrées
+    if (regex.test() == true) {
+      //si entrées valides, validation des conditions
+      if (moyenne >=0 && moyenne < 10) {
+        alert('Moyenne : ' + moyenne + '\nEn dessous de la moyenne.');
+      } else if ((moyenne >=10) && (moyenne <13)) {
+        alert('Moyenne : ' +moyenne + '\nMoyen.');
+      } else if ((moyenne >=13) && (moyenne <16)) {
+        alert('Moyenne : ' + moyenne + '\nBien.');
+      } else if ((moyenne >=16) && (moyenne <20)) {
+        alert('Moyenne : ' + moyenne + '\nTrès bien.');
+      } else if (moyenne == 20) {
+        alert('Moyenne : ' + moyenne + '\nExcellent.');
+      }
+      //si entrées fausses
+    } else {
+      alert('Veuillez recommencer la saisie.');
+    }
+    console.log( moyenne = (note1 + note2 + note3 + note4 + note5) / 5);
+  });
 
   </script>
 </body>
